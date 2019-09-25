@@ -1,0 +1,66 @@
+<html>
+<head>
+	<title>Add Data</title>
+</head>
+
+<body>
+	<a href="index.php">Home</a>
+	<br/><br/>
+
+	<form action="add.php" method="post" name="form1">
+		<table width="25%" border="0">
+			<tr> 
+				<td>First Name</td>
+				<td><input type="text" name="eFirstName"></td>
+			</tr>
+			<tr> 
+				<td>Last Name</td>
+				<td><input type="text" name="eLastName"></td>
+			</tr>
+			<tr> 
+				<td>Gender</td>
+				<td><input type="text" name="eGender"></td>
+			</tr>
+			<tr> 
+				<td>Department</td>
+				<td><input type="text" name="eDepartment"></td>
+			</tr>
+			<tr> 
+				<td>Date Employed</td>
+				<td><input type="text" name="eDateEmployed"></td>
+			</tr>
+			<tr> 
+				<td>Salary</td>
+				<td><input type="text" name="eSalary" onkeypress='validate(event)'/></td>
+			</tr>
+			<tr> 
+				<td></td>
+				<td><input type="submit" name="Submit" value="Add"></td>
+			</tr>
+		</table>
+	</form>
+
+
+	<script>
+	
+	function validate(evt) {
+  var theEvent = evt || window.event;
+
+
+  if (theEvent.type === 'paste') {
+      key = event.clipboardData.getData('text/plain');
+  } else {
+
+      var key = theEvent.keyCode || theEvent.which;
+      key = String.fromCharCode(key);
+  }
+  var regex = /[0-9]|\./;
+  if( !regex.test(key) ) {
+    theEvent.returnValue = false;
+    if(theEvent.preventDefault) theEvent.preventDefault();
+  }
+}
+	</script>
+</body>
+</html>
+
